@@ -1,1 +1,3 @@
-# c_plus_plus_98
+# C_Plus_Plus_98
+
+Time to dive into Object Oriented Programming!
