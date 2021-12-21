@@ -1,0 +1,9 @@
+Default constructor called
+
+Copy constructor called
+
+Default constructor called
+
+Copy constructor called
+Assignation operator called
+getRawBits member function called
