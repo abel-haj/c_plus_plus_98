@@ -1,6 +1,6 @@
-NAME		=		replace
+NAME		=		headache
 CPPFLAGS	=		-Wall -Wextra -Werror -std=c++98
-SRC			=		main.cpp
+SRC			=		main.cpp Karen.cpp
 
 all:			$(NAME)
 
