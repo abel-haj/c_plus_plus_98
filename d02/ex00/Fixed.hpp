@@ -15,7 +15,7 @@ class Fixed
 		/* copy constructor */
 		Fixed( const Fixed& f );
 		/* assignation operator overload */
-		Fixed& operator=( Fixed f );
+		Fixed& operator=( Fixed& f );
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 		/* destructor */

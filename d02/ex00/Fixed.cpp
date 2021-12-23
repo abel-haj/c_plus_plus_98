@@ -18,18 +18,17 @@ Fixed::Fixed( const Fixed& f ) {
 /*
  * assignation operator overload
  */
-Fixed& Fixed::operator=( Fixed f ) {
+Fixed& Fixed::operator=( Fixed& f ) {
 
 	std::cout << "Assignation operator called" << std::endl;
 	_value = f.getRawBits();
 
-	// return *this;
+	return *this;
 }
 
 int Fixed::getRawBits( void ) const {
 
 	std::cout << "getRawBits member function called" << std::endl;
-
 	return _value;
 }
 
