@@ -3,7 +3,8 @@
 
 #include <iostream>
 
-class Zombie {
+class Zombie
+{
 	private:
 		std::string	_name;
 
