@@ -27,45 +27,28 @@ Karen::Karen() {
 
 void Karen::complain( std::string level ) {
 
-	if ( level.compare( "DEBUG" ) == 0 ) {
+	// if ( level.compare( "DEBUG" ) == 0 ) {
 
-		Karen::debug();
-
-	} else if ( level.compare( "INFO" ) == 0 ) {
-
-		Karen::info();
-
-	} else if ( level.compare( "WARNING" ) == 0 ) {
-
-		Karen::warning();
-
-	} else if ( level.compare( "ERROR" ) == 0 ) {
-
-		Karen::error();
-
-	}
-
-	// switch ( 0 )
-	// {
-	// case level.compare( "DEBUG" ):
 	// 	Karen::debug();
-	// 	break;
 
-	// case "INFO":
+	// } else if ( level.compare( "INFO" ) == 0 ) {
+
 	// 	Karen::info();
-	// 	break;
 
-	// case "WARNING":
+	// } else if ( level.compare( "WARNING" ) == 0 ) {
+
 	// 	Karen::warning();
-	// 	break;
 
-	// case "ERROR":
+	// } else if ( level.compare( "ERROR" ) == 0 ) {
+
 	// 	Karen::error();
-	// 	break;
 
-	// default:
-	// 	break;
 	// }
+
+	void (Karen::*ptr)();
+	ptr = &Karen::debug;
+	(this->*ptr)();
+
 }
 
 Karen::~Karen() {

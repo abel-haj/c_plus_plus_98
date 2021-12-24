@@ -14,5 +14,9 @@ int	main( void ) {
 	blonde.complain( "TEST" );
 	blonde.complain( "TEST" );
 
+	// void (Karen::*ptr)();
+	// ptr = &Karen::debug;
+	// (this->*ptr)();
+
 	return 0;
 }
