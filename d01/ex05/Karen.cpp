@@ -27,27 +27,17 @@ Karen::Karen() {
 
 void Karen::complain( std::string level ) {
 
-	// if ( level.compare( "DEBUG" ) == 0 ) {
+	std::string levels[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+	typedef void ( Karen::*complainPtr )( void );
+	complainPtr levelsPtr[4] = { &Karen::debug, &Karen::info, &Karen::warning, &Karen::error };
 
-	// 	Karen::debug();
+	for (size_t i = 0; i < 4; i++) {
 
-	// } else if ( level.compare( "INFO" ) == 0 ) {
+		if ( !level.compare( levels[i] ) ) {
 
-	// 	Karen::info();
-
-	// } else if ( level.compare( "WARNING" ) == 0 ) {
-
-	// 	Karen::warning();
-
-	// } else if ( level.compare( "ERROR" ) == 0 ) {
-
-	// 	Karen::error();
-
-	// }
-
-	void (Karen::*ptr)();
-	ptr = &Karen::debug;
-	(this->*ptr)();
+			(this->*levelsPtr[i])();
+		}
+	}
 
 }
 
