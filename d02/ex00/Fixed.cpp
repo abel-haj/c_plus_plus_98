@@ -20,7 +20,7 @@ Fixed::Fixed( const Fixed& f ) {
  */
 Fixed& Fixed::operator=( Fixed& f ) {
 
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	_value = f.getRawBits();
 
 	return *this;
