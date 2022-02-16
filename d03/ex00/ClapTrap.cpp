@@ -5,7 +5,7 @@ ClapTrap::ClapTrap ( std::string name ) {
 
 	this->_hp = 10;
 	this->_ep = 10;
-	this->_dmg = 10;
+	this->_dmg = 0;
 	this->_name = name;
 	std::cout << "A wild ClapTrap appeared: " << name << std::endl;
 }
