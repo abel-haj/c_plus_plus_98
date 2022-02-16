@@ -7,6 +7,7 @@ ClapTrap::ClapTrap ( std::string name ) {
 	this->_ep = 10;
 	this->_dmg = 0;
 	this->_name = name;
+
 	std::cout << "A wild ClapTrap appeared: " << name << std::endl;
 }
 
@@ -17,6 +18,8 @@ ClapTrap::ClapTrap ( const ClapTrap& robot ) {
 	this->_ep = robot._ep;
 	this->_dmg = robot._dmg;
 	this->_name = robot._name;
+
+	std::cout << "Woah! ClapTrap " << robot._name << " duplicated himself!" << std::endl;
 }
 
 // Copy assignment operator
@@ -26,6 +29,8 @@ ClapTrap& ClapTrap::operator= ( ClapTrap& robot ) {
 	this->_ep = robot._ep;
 	this->_dmg = robot._dmg;
 	this->_name = robot._name;
+
+	std::cout << "Woah! ClapTrap " << robot._name << " replicated himself!" << std::endl;
 
 	return *this;
 }
