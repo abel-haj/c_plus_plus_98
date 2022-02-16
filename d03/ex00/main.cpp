@@ -42,5 +42,20 @@ int	main( void ) {
 
 	r2.beRepaired( 5 );
 
+
+	std::cout << std::endl;
+
+	ClapTrap r3 ( "clone" );
+	
+	std::cout << std::endl;
+
+	r3 = r2;
+
+	std::cout << std::endl;
+
+	ClapTrap r4 ( r1 );
+
+	std::cout << std::endl;
+
 	return 0;
 }
