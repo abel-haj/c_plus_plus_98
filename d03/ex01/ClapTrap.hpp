@@ -5,7 +5,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		int _hp;
 		int _ep;
 		int _dmg;
