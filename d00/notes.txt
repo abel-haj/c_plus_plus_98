@@ -1,8 +1,0 @@
-always header protection
-explicit filenames
-standard input + newline
-forbidden : alloc, printf, free
-no <algorithm> or STL
-no "friend" or "using namespace"
-class -> .hpp + .cpp
-compile with clang++

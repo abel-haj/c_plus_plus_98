@@ -13,7 +13,9 @@ class ClapTrap
 
 	public:
 		// Default constructor
-		ClapTrap ( std::string name );
+		ClapTrap ( void );
+		// Constructor overload
+		ClapTrap ( const std::string& name );
 		// Copy constructor
 		ClapTrap ( const ClapTrap& robot );
 		// Copy assignment operator

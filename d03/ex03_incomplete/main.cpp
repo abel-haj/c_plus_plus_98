@@ -1,20 +1,20 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main( void ) {
 
-	ScavTrap r1 ( "botone" );
+	FragTrap r1 ( "botone" );
 
 	std::cout << std::endl;
 
-	ScavTrap r2 ( "bottwo" );
+	FragTrap r2 ( "bottwo" );
 
 	std::cout << std::endl;
 
-	ScavTrap r3 ( r1 );
+	FragTrap r3 ( r1 );
 
 	std::cout << std::endl;
 
-	ScavTrap r4;
+	FragTrap r4;
 
 	std::cout << std::endl;
 
@@ -34,7 +34,7 @@ int	main( void ) {
 
 	std::cout << std::endl;
 
-	r4.guardGate ();
+	r4.highFivesGuys ();
 
 	return 0;
 }

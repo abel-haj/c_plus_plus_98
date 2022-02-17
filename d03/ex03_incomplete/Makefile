@@ -1,11 +1,11 @@
-NAME		=		claptrap
+NAME		=		diamondtrap
 CC			=		c++
 CPPFLAGS	=		-Wall -Wextra -Werror -std=c++98
-SRC			=		main.cpp ClapTrap.cpp
+SRC			=		main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
-all:			$(NAME)
+all:		$(NAME)
 
-$(NAME): $(SRC)
+$(NAME):	$(SRC)
 		@$(CC) $(CPPFLAGS) $(SRC) -o $(NAME) && echo "\033[1;33mCompiled $(NAME)\033[0m"
 
 clean:

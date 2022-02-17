@@ -1,7 +1,18 @@
 #include "ClapTrap.hpp"
 
 // Default constructor
-ClapTrap::ClapTrap ( std::string name ) {
+ClapTrap::ClapTrap ( void ) {
+
+	this->_hp = 10;
+	this->_ep = 10;
+	this->_dmg = 0;
+	this->_name = "nameless";
+
+	std::cout << "A " << this->_name << " ClapTrap appeared!" << std::endl;
+}
+
+// Constructor overload
+ClapTrap::ClapTrap ( const std::string& name ) {
 
 	this->_hp = 10;
 	this->_ep = 10;

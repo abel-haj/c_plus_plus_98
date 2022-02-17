@@ -9,6 +9,10 @@ std::string	find_n_replace( std::string line, std::string s1, std::string s2 ) {
 	start = index = len = 0;
 	while ( line.find(s1) != std::string::npos ) {
 
+		/*
+			.....,..,...
+		*/
+
 		index = line.find(s1);
 		len = s1.length();
 		// cut from start to index
@@ -45,9 +49,8 @@ int	main(/* int ac, char **av */) {
 
 		ofs.open(newfilename);
 
-		while ( ifs.good() ) {
+		while ( ifs.good() && std::getline(ifs, line) ) {
 
-			std::getline(ifs, line);
 			std::cout << line << std::endl;
 
 			// std::cout << s1 + " " + s2 << std::endl;

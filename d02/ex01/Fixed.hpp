@@ -7,26 +7,26 @@ class Fixed
 {
 	private:
 		int	_value;
-		static const int _bits;
+		static const int _bits = 8;
 
 	public:
-		/* default constructor */
-		Fixed();
-		Fixed(int const n);
-		Fixed(float const n);
-		/* copy constructor */
-		Fixed( const Fixed& f );
-		/* assignation operator overload */
-		Fixed& operator=( Fixed& f );
-		/* insertion operator overload */
-		Fixed& operator<<( Fixed& f );
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
-		float toFloat( void ) const;
-		int toInt( void ) const;
-		/* destructor */
-		~Fixed();
+		/* Default constructor */
+		Fixed ( void );
+		Fixed ( int const n );
+		Fixed ( float const n );
+		/* Copy constructor */
+		Fixed ( const Fixed& f );
+		/* Assignation operator overload */
+		Fixed& operator= ( const Fixed& f );
+		/* Insertion operator overload */
+		int getRawBits ( void ) const;
+		void setRawBits ( int const raw );
+		float toFloat ( void ) const;
+		int toInt ( void ) const;
+		/* Destructor */
+		~Fixed( void );
 };
 
+std::ostream& operator<< ( std::ostream& lhs, const Fixed& f );
 
 #endif

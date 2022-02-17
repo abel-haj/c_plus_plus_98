@@ -4,8 +4,8 @@
 ClapTrap::ClapTrap ( void ) {
 
 	this->_hp = 100;
-	this->_ep = 50;
-	this->_dmg = 20;
+	this->_ep = 100;
+	this->_dmg = 30;
 	this->_name = "nameless";
 
 	std::cout << "A " << this->_name << " ClapTrap appeared!" << std::endl;

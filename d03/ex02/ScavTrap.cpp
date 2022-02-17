@@ -58,3 +58,7 @@ void ScavTrap::guardGate ( void ) {
 
     std::cout << "ScavTrap " << this->_name << " is guarding the gate!" << std::endl;
 }
+
+void ScavTrap::printHP ( void ) {
+	std::cout << "HP is : " << this->_hp << std::endl;
+}
