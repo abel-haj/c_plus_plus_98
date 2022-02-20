@@ -6,12 +6,12 @@
 class Bureaucrat {
 
 	private:
-		std::string&		_name;
+		const std::string		_name;
 		int						_grade;
 
 	public:
 								Bureaucrat ( void );
-								Bureaucrat ( std::string& name, int grade );
+								Bureaucrat ( const std::string& name, int grade );
 								Bureaucrat ( const Bureaucrat& b );
 		Bureaucrat&				operator= ( const Bureaucrat& b );
 								~Bureaucrat ( void );
@@ -25,7 +25,7 @@ class Bureaucrat {
 
 		public:
 			virtual const char* what() const throw() {
-				return "GRADE WAS BENEATH 0!";
+				return "GRADE WAS BENEATH 0!\n";
 			}
 
 	};
@@ -34,7 +34,7 @@ class Bureaucrat {
 
 		public:
 			virtual const char* what() const throw() {
-				return "GRADE WAS ABOVE 150!";
+				return "GRADE WAS ABOVE 150!\n";
 			}
 
 	};

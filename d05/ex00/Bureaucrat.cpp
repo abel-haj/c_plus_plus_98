@@ -1,42 +1,28 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat ( void ) {
+Bureaucrat::Bureaucrat ( void ) : _name( "worker" ) {
 
 	this->_grade = 150;
-	this->_name	= "worker";
-
 	std::cout << "Bureaucrat " << this->_name << " was hired with grade 150!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat ( std::string& name, int grade ) : _name ( name ) {
+Bureaucrat::Bureaucrat ( const std::string& name, int grade ) : _name ( name ) {
 
-	try {
+	if ( grade > 150 )
+		throw Bureaucrat::GradeTooLowException();
 
-		if ( grade > 150 )
-			throw GradeTooLowException::exception();
-		// else if ( grade < 0 )
-		// 	throw GradeTooHighException::exception();
-		else
+	else if ( grade < 0 )
+		throw Bureaucrat::GradeTooHighException();
+
+	else
 		this->_grade = grade;
-		std::cout << "Bureaucrat " << this->_name << " was hired with grade " << this->_grade << "!" << std::endl;
-	}
-	
-	catch (std::exception& e) {
 
-		// std::cout << e.what() << std::endl;
-		std::cout << "TOO LOW" << std::endl;
-	}
-
-	// catch (std::exception& e) {
-
-	// 	std::cout << "STD EXCEPTION" << std::endl;
-	// }
+	std::cout << "Bureaucrat " << this->_name << " was hired with grade " << this->_grade << "!" << std::endl;
 
 }
 
 Bureaucrat::Bureaucrat ( const Bureaucrat& b ) : _name (b._name){
 
-	// this->_name = b._name;
 	this->_grade = b._grade;
 }
 
