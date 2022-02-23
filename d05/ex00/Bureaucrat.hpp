@@ -16,8 +16,8 @@ class Bureaucrat {
 		Bureaucrat&				operator= ( const Bureaucrat& b );
 								~Bureaucrat ( void );
 
-		std::string				getName ( void ) const;
-		int						getGrade ( void ) const;
+		const std::string&			getName ( void ) const;
+		const int&					getGrade ( void ) const;
 		void					incrementGrade ( void );
 		void					decrementGrade ( void );
 
@@ -25,7 +25,7 @@ class Bureaucrat {
 
 		public:
 			virtual const char* what() const throw() {
-				return "GRADE WAS BENEATH 0!\n";
+				return "GRADE WAS BENEATH 1!";
 			}
 
 	};
@@ -34,7 +34,7 @@ class Bureaucrat {
 
 		public:
 			virtual const char* what() const throw() {
-				return "GRADE WAS ABOVE 150!\n";
+				return "GRADE WAS ABOVE 150!";
 			}
 
 	};
