@@ -9,10 +9,10 @@ Bureaucrat::Bureaucrat ( void ) : _name( "worker" ) {
 Bureaucrat::Bureaucrat ( const std::string& name, int grade ) : _name ( name ) {
 
 	if ( grade > 150 )
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 
-	else if ( grade < 0 )
-		throw Bureaucrat::GradeTooHighException();
+	else if ( grade < 1 )
+		throw GradeTooHighException();
 
 	else
 		this->_grade = grade;
@@ -38,14 +38,34 @@ Bureaucrat::~Bureaucrat ( void ) {
 	std::cout << "Bureaucrat " << this->_name << " resigned!" << std::endl;
 }
 
-std::string Bureaucrat::getName ( void ) const {
+const std::string& Bureaucrat::getName ( void ) const {
 
 	return this->_name;
 }
 
-int Bureaucrat::getGrade ( void ) const {
+const int& Bureaucrat::getGrade ( void ) const {
 
 	return this->_grade;
+}
+
+void Bureaucrat::incrementGrade ( void ) {
+
+	if (this->_grade == 1)
+		throw GradeTooHighException();
+	else
+		this->_grade--;
+
+	std::cout << this->_name << " got a promotion!";
+}
+
+void Bureaucrat::decrementGrade ( void ) {
+
+	if (this->_grade == 150)
+		throw GradeTooLowException();
+	else
+		this->_grade++;
+
+	std::cout << this->_name << " got a demotion!";
 }
 
 std::ostream& operator<< ( std::ostream& os, const Bureaucrat& b) {
