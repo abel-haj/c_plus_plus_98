@@ -68,6 +68,24 @@ void Bureaucrat::decrementGrade ( void ) {
 	std::cout << this->_name << " got a demotion!";
 }
 
+void Bureaucrat::signForm ( const Form& f ) {
+
+	// std::cout << this->_name << " signed " << f._name << std::endl;
+	// this->_name << " couldn’t sign " << f._name << " because " << "" << std::endl;
+}
+
+// Exception class member functions
+const char* Bureaucrat::GradeTooHighException::what ( void ) const throw () {
+
+	return "GRADE WAS ABOVE 150!";
+}
+
+// Exception class member functions
+const char* Bureaucrat::GradeTooLowException::what ( void ) const throw () {
+
+	return "GRADE WAS ABOVE 150!";
+}
+
 std::ostream& operator<< ( std::ostream& os, const Bureaucrat& b) {
 
 	os << b.getName() << ", bureaucrat grade " << b.getGrade();

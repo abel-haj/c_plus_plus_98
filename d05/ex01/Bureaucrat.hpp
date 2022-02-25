@@ -2,7 +2,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-
+# include "Form.hpp"
 class Bureaucrat {
 
 	private:
@@ -16,26 +16,23 @@ class Bureaucrat {
 		Bureaucrat&				operator= ( const Bureaucrat& b );
 								~Bureaucrat ( void );
 
-		const std::string&			getName ( void ) const;
-		const int&					getGrade ( void ) const;
+		const std::string&		getName ( void ) const;
+		const int&				getGrade ( void ) const;
 		void					incrementGrade ( void );
 		void					decrementGrade ( void );
+		void					signForm ( const Form& f );
 
 	class GradeTooHighException : public std::exception {
 
 		public:
-			virtual const char* what() const throw() {
-				return "GRADE WAS BENEATH 1!";
-			}
+			const char* what() const throw ();
 
 	};
 
 	class GradeTooLowException : public std::exception {
 
 		public:
-			virtual const char* what() const throw() {
-				return "GRADE WAS ABOVE 150!";
-			}
+			const char* what() const throw ();
 
 	};
 
