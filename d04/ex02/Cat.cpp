@@ -11,7 +11,8 @@ Cat::Cat ( void ) {
 Cat::Cat ( const Cat& cat ) {
 
 	this->type = cat.type;
-	this->_brain = cat._brain;
+	this->_brain = new Brain();
+	*this->_brain = *cat._brain;
 
 	std::cout << "Cat duplicated!" << std::endl;
 }
@@ -19,7 +20,8 @@ Cat::Cat ( const Cat& cat ) {
 Cat& Cat::operator= ( const Cat& cat ) {
 
 	this->type = cat.type;
-	this->_brain = cat._brain;
+	this->_brain = new Brain();
+	*this->_brain = *cat._brain;
 
 	std::cout << "Cat replicated!" << std::endl;
 	return *this;

@@ -8,12 +8,11 @@ Dog::Dog ( void ) {
 	std::cout << "A Dog came sniffing!" << std::endl;
 }
 
-// TODO
-	// deep copy
 Dog::Dog ( const Dog& dog ) {
 
 	this->type = dog.type;
-	this->_brain = dog._brain;
+	this->_brain = new Brain();
+	*this->_brain = *dog._brain;
 
 	std::cout << "Dog duplidocated!" << std::endl;
 }
@@ -21,7 +20,8 @@ Dog::Dog ( const Dog& dog ) {
 Dog& Dog::operator= ( const Dog& dog ) {
 
 	this->type = dog.type;
-	this->_brain = dog._brain;
+	this->_brain = new Brain();
+	*this->_brain = *dog._brain;
 
 	std::cout << "Dog replidocated!" << std::endl;
 	return *this;
