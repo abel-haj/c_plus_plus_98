@@ -2,6 +2,7 @@
 # define FORM_HPP
 
 # include <iostream>
+# include "Bureaucrat.hpp"
 
 class Form {
 	private:
@@ -12,26 +13,23 @@ class Form {
 
 	public:
 							Form ( void );
-							Form ( std::string& name );
-							Form ( const Form& instance );
-		Form&				operator= ( const Form& instance );
+							Form ( const std::string& name );
+							Form ( const Form& f );
+		Form&				operator= ( const Form& f );
 							~Form ( void );
+		void				beSigned ( const Bureaucrat& b );
 
 		class GradeTooHighException : public std::exception {
 
 			public:
-				virtual const char* what() const throw() {
-					return ( "Grade was too high to operate on this form!" );
-				}
+				virtual const char* what() const throw();
 
 		};
 
 		class GradeTooLowException : public std::exception {
 
 			public:
-				virtual const char* what() const throw() {
-					return ( "Grade was too low to operate on this form!" );
-				}
+				virtual const char* what() const throw();
 
 		};
 
