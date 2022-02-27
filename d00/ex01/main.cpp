@@ -1,12 +1,39 @@
 #include <iostream>
 #include "PhoneBook.hpp"
-// using namespace std;
 
-void	print_menu()
+std::string trim_spaces(std::string s)
 {
-	std::cout << std::endl << "ADD    : Add new contact\n";
-	std::cout << "SEARCH : List and search for an contact\n";
-	std::cout << "EXIT   : Quit program\n\n";
+	size_t	i = 0;
+	size_t	j = s.size() - 1;
+
+	while(i < j + 1)
+	{
+		if (s[i] != ' ' && s[i] != '\t')
+			break;
+		i++;
+	}
+
+	while(j >= 0)
+	{
+		if (s[j] != ' ' && s[j] != '\t')
+			break;
+		j--;
+	}
+
+	return (s.substr(i, j - i + 1));
+}
+
+std::string	get_valid_input(const std::string prompt)
+{
+	std::string value;
+
+	value = "";
+	while (trim_spaces(value).empty())
+	{
+		std::cout << prompt;
+		std::getline(std::cin, value);
+	}
+	return (trim_spaces(value));
 }
 
 PhoneBook  Add_new_acc(PhoneBook p, int *i)
@@ -15,25 +42,24 @@ PhoneBook  Add_new_acc(PhoneBook p, int *i)
 
 	std::cout << "ADD NEW CONTACT\n";
 
-	std::cout << "Enter First Name: ";
-	std::getline(std::cin, Input[0]);
-
-	std::cout << "Enter Last Name: ";
-	std::getline(std::cin, Input[1]);
-
-	std::cout << "Enter Nickname: ";
-	std::getline(std::cin, Input[2]);
-
-	std::cout << "Enter Phone Number: ";
-	std::getline(std::cin, Input[3]);
-
-	std::cout << "Enter Dark Secret: ";
-	std::getline(std::cin, Input[4]);
+	Input[0] = get_valid_input("Enter First Name: ");
+	Input[1] = get_valid_input("Enter Last Name: ");
+	Input[2] = get_valid_input("Enter Nickname: ");
+	Input[3] = get_valid_input("Enter Phone Number: ");
+	Input[4] = get_valid_input("Enter Dark Secret: ");
 
 	p.insert(Input, *i);
 	(*i)++;
 
 	return (p);
+}
+
+void	print_menu()
+{
+	std::cout << std::endl;
+	std::cout << "ADD    : Add new contact\n";
+	std::cout << "SEARCH : List and search for an contact\n";
+	std::cout << "EXIT   : Quit program\n\n";
 }
 
 int	main(void)
@@ -53,7 +79,7 @@ int	main(void)
 	while (1)
 	{
 		print_menu();
-	
+
 		std::cout << "Choose and option : ";
 		std::getline(std::cin, choice);
 		std::cout << std::endl;
@@ -73,16 +99,17 @@ int	main(void)
 			std::cout << "Enter Index of Contact: ";
 			std::getline(std::cin, search);
 
-			try {
-
+			try
+			{
 				if (std::stoi(search) < d)
 				{
 					p.search(std::stoi(search));
 				}
 				else
 					std::cout << "Invalid index!\n";
-			} catch (std::invalid_argument) {
-
+			}
+			catch (std::invalid_argument)
+			{
 				std::cout << "Invalid index!\n";
 			}
 
