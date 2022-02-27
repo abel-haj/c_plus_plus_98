@@ -1,6 +1,6 @@
 NAME		=		phonebook
 CC			=		c++
-CPPFLAGS	=		-Wall -Wextra -Werror
+CPPFLAGS	=		-Wall -Wextra -Werror -std=c++98
 SRC			=		main.cpp Contact.cpp PhoneBook.cpp
 
 all:			$(NAME)
