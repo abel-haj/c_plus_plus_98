@@ -5,7 +5,7 @@ std::string	trunc(std::string str) {
 	if ( str.length() > 9 )
 		return str.substr(0, 9) + '.';
 	else
-		return str.substr(0, 10);
+		return str;
 }
 
 void	PhoneBook::insert( std::string info[5], int i ) {
