@@ -13,4 +13,4 @@ clean:
 
 re:			clean all
 
-.PHONY:		all clean
+.PHONY:		all clean re
