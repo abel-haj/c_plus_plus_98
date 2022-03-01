@@ -1,69 +1,67 @@
 #include <iostream>
 #include <fstream>
 
+/*
+ * This function replaces s1 occurances in line with s2
+ */
 std::string	find_n_replace( std::string line, std::string s1, std::string s2 ) {
 
-	size_t		start, index, len;
-	std::string	newline;
+	size_t		start, index;
+	std::string	newline, left;
 
-	start = index = len = 0;
-	while ( line.find(s1) != std::string::npos ) {
+	start = index = 0;
+	left = line;
+	while ( left.find( s1 ) != std::string::npos ) {
 
-		/*
-			.....,..,...
-		*/
-
-		index = line.find(s1);
-		len = s1.length();
-		// cut from start to index
-		newline = line.substr(0, index);
-		// concat new value
+		index = left.find( s1 );
+		newline = left.substr(start, index);
 		newline.append(s2);
-		// add whats left
-		newline.append(line.substr(index + len));
-		line = newline;
+		left = left.substr(index + s1.length());
+		start = index + s1.length();
 	}
 
-	return ( line );
+	newline.append( left );
+
+	return ( newline );
 }
 
-int	main(/* int ac, char **av */) {
+int	main( int ac, char **av ) {
 
 	std::string		s1, s2, filename, newfilename, line;
 	std::ifstream	ifs;
 	std::ofstream	ofs;
 
-	std::cout << "Enter file : ";
-	std::cin >> filename;
-	newfilename = filename + ".replace";
+	if ( ac == 4 ) {
 
-	std::cout << "Enter first string : ";
-	std::cin >> s1;
+		filename = av[1];
+		s1 = av[2];
+		s2 = av[3];
 
-	std::cout << "Enter second string : ";
-	std::cin >> s2;
+		ifs.open(filename);
 
-	ifs.open(filename);
+		if ( ifs ) {
 
-	if ( ifs ) {
+			newfilename = filename + ".replace";
+			ofs.open(newfilename);
 
-		ofs.open(newfilename);
+			while ( ifs.good() && std::getline(ifs, line) ) {
 
-		while ( ifs.good() && std::getline(ifs, line) ) {
+				ofs << find_n_replace( line, s1, s2 );
+				if ( !ifs.eof() )
+					ofs << std::endl;
+			}
 
-			std::cout << line << std::endl;
+			ofs.close();
+		}
+		else {
 
-			// std::cout << s1 + " " + s2 << std::endl;
-			// std::cout << find_n_replace( line, s1, s2 ) << std::endl;
-			ofs << find_n_replace( line, s1, s2 );
-			ofs << std::endl;
+			std::cout << "Invalid filename" << std::endl;
 		}
 
-		ofs.close();
 	}
 	else {
 
-		std::cout << "Invalid filename" << std::endl;
+		std::cout << "Invalid number of arguments" << std::endl;
 	}
 
 	return ( 0 );
