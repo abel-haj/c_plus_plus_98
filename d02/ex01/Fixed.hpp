@@ -12,21 +12,26 @@ class Fixed
 	public:
 		/* Default constructor */
 		Fixed ( void );
+		/* Int constructor */
 		Fixed ( int const n );
+		/* Float constructor */
 		Fixed ( float const n );
 		/* Copy constructor */
 		Fixed ( const Fixed& f );
 		/* Assignation operator overload */
 		Fixed& operator= ( const Fixed& f );
-		/* Insertion operator overload */
+		/* Accessors */
 		int getRawBits ( void ) const;
 		void setRawBits ( int const raw );
+		/* Member function */
 		float toFloat ( void ) const;
+		/* Member function */
 		int toInt ( void ) const;
 		/* Destructor */
-		~Fixed( void );
+		~Fixed ( void );
 };
 
+/* Insertion operator overload */
 std::ostream& operator<< ( std::ostream& lhs, const Fixed& f );
 
 #endif

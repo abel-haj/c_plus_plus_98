@@ -10,16 +10,17 @@ class Fixed
 		static const int _bits = 8;
 
 	public:
-		/* default constructor */
-		Fixed();
-		/* copy constructor */
-		Fixed( const Fixed& f );
-		/* assignation operator overload */
-		Fixed& operator=( Fixed& f );
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
-		/* destructor */
-		~Fixed();
+		/* Default constructor */
+		Fixed ( void );
+		/* Copy constructor */
+		Fixed ( const Fixed& f );
+		/* Assignation operator overload */
+		Fixed& operator= ( const Fixed& f );
+		/* Accessors */
+		int getRawBits ( void ) const;
+		void setRawBits ( int const raw );
+		/* Destructor */
+		~Fixed ( void );
 };
 
 

@@ -7,48 +7,58 @@ class Fixed
 {
 	private:
 		int	_value;
-		static const int _bits;
+		static const int _bits = 8;
 
 	public:
-		/* default constructor */
-		Fixed();
-		Fixed(int const n);
-		Fixed(float const n);
-		/* copy constructor */
-		Fixed( const Fixed& f );
-		/* assignation operator overload */
-		Fixed& operator=( Fixed& f );
-		/* insertion operator overload */
-		Fixed& operator<<( Fixed& f );
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		/* Default constructor */
+		Fixed ( void );
+		/* Int constructor */
+		Fixed ( int const n );
+		/* Float constructor */
+		Fixed ( float const n );
+		/* Copy constructor */
+		Fixed ( const Fixed& f );
+		/* Assignation operator overload */
+		Fixed& operator= ( const Fixed& f );
+		/* Accessors */
+		int getRawBits ( void ) const;
+		void setRawBits ( int const raw );
+		/* Member function */
+		float toFloat ( void ) const;
+		/* Member function */
+		int toInt ( void ) const;
+		/* Destructor */
+		~Fixed( void );
 
-		/**/
+		// COMPARAISON OPERATORS
+		bool operator> (const Fixed& f) const;
+		bool operator< (const Fixed& f) const;
+		bool operator>= (const Fixed& f) const;
+		bool operator<= (const Fixed& f) const;
+		bool operator== (const Fixed& f) const;
+		bool operator!= (const Fixed& f) const;
+		// COMPARAISON OPERATORS
 
-		// >
-		bool operator> (const Fixed& f);
-		// <
-		bool operator< (const Fixed& f);
-		// >=
-		bool operator>= (const Fixed& f);
-		// <=
-		bool operator<= (const Fixed& f);
-		// ==
-		bool operator== (const Fixed& f);
-		// !=
-		bool operator!= (const Fixed& f);
+		// ARITHMETIC OPERATORS
+		Fixed operator+ (const Fixed& f) const;
+		Fixed operator- (const Fixed& f) const;
+		Fixed operator* (const Fixed& f) const;
+		Fixed operator/ (const Fixed& f) const;
+		// ARITHMETIC OPERATORS
 
-		/**/
+		// INCREMET/DECREMENT OPERATORS
+		Fixed operator++ ();
+		Fixed operator++ ( int );
+		Fixed operator-- ();
+		Fixed operator-- ( int );
+		// INCREMET/DECREMENT OPERATORS
 
-		/**/
-
-		/**/
-
-		/* destructor */
-		~Fixed();
+		static const Fixed& min ( const Fixed& f1, const Fixed& f2 );
+		static Fixed& max ( Fixed& f1, Fixed& f2 );
+		static const Fixed& max ( const Fixed& f1, const Fixed& f2 );
 };
 
+/* Insertion operator overload */
+std::ostream& operator<< ( std::ostream& lhs, const Fixed& f );
 
 #endif
