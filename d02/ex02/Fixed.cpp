@@ -210,12 +210,23 @@ Fixed Fixed::operator-- ( int ) {
 /*
  * Returns the smallest Fixed point
  */
+Fixed& Fixed::min ( Fixed& f1, Fixed& f2 ) {
+
+	if ( f1 > f2 )
+		return f2;
+	return f1;
+}
+
+/*
+ * Returns the smallest Fixed point
+ */
 const Fixed& Fixed::min ( const Fixed& f1, const Fixed& f2 ) {
 
 	if ( f1 > f2 )
 		return f2;
 	return f1;
 }
+
 /*
  * Returns the greatest Fixed point
  */
