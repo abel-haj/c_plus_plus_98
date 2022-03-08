@@ -68,19 +68,26 @@ void Bureaucrat::decrementGrade ( void ) {
 	std::cout << this->_name << " got a demotion!";
 }
 
-void Bureaucrat::signForm ( const Form& f ) {
+void Bureaucrat::signForm ( Form& f ) {
 
-	// std::cout << this->_name << " signed " << f._name << std::endl;
-	// this->_name << " couldn’t sign " << f._name << " because " << "" << std::endl;
+	try {
+
+		f.beSigned( *this );
+		std::cout << this->getName() << " signed " << f.getName() << std::endl;
+	}
+	catch ( std::exception& e ) {
+
+		std::cout << this->getName() << " couldn’t sign" << f.getName() << " because " << e.what() << std::endl;
+	}
 }
 
-// Exception class member functions
+// Bureaucrat grade exceeding 150
 const char* Bureaucrat::GradeTooHighException::what ( void ) const throw () {
 
 	return "GRADE WAS ABOVE 150!";
 }
 
-// Exception class member functions
+// Bureaucrat grade less than 0
 const char* Bureaucrat::GradeTooLowException::what ( void ) const throw () {
 
 	return "GRADE WAS ABOVE 150!";
