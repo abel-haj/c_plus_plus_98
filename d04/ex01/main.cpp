@@ -3,46 +3,49 @@
 
 #define NEWLINE std::cout << std::endl;
 #define DNEWLINE std::cout << std::endl; std::cout << std::endl;
+#define N 3
 
 int main ( void ) {
 
-	const Animal* d = new Dog ();
-	DNEWLINE
-	const Animal* c = new Cat ();
+	{
+		// const Animal* d = new Dog ();
+		// DNEWLINE
+		// const Animal* c = new Cat ();
 
-	DNEWLINE
+		// DNEWLINE
 
-	delete d;
-	DNEWLINE
-	delete c;
-
-
-	DNEWLINE
+		// delete d;
+		// DNEWLINE
+		// delete c;
 
 
-	const Animal* animals[10];
+		// DNEWLINE
 
-	DNEWLINE
 
-	for (int i = 0; i < 5; i++)
-		animals[i] = new Cat();
+		// const Animal* animals[N];
 
-	DNEWLINE
+		// DNEWLINE
 
-	for (int j = 5; j < 10; j++)
-		animals[j] = new Dog();
+		// for (int i = 0; i < N / 2; i++)
+		// 	animals[i] = new Cat();
 
-	DNEWLINE
+		// DNEWLINE
 
-	for (size_t i = 0; i < 10; i++) {
+		// for (int j = N / 2; j < N; j++)
+		// 	animals[j] = new Dog();
 
-		animals[i]->makeSound();
-		DNEWLINE
-		delete animals[i];
-		DNEWLINE
+		// DNEWLINE
+
+		// for (size_t i = 0; i < N; i++) {
+
+		// 	animals[i]->makeSound();
+		// 	DNEWLINE
+		// 	delete animals[i];
+		// 	DNEWLINE
+		// }
 	}
 
-	getchar ();
+	// system ("leaks brain");
 
 	return 0;
 }
