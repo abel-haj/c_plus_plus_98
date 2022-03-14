@@ -2,28 +2,29 @@
 
 Dog::Dog ( void ) {
 
+	std::cout << "A Dog came sniffing!" << std::endl;
+
 	this->type = "Dog";
 	this->_brain = new Brain ();
-
-	std::cout << "A Dog came sniffing!" << std::endl;
 }
 
 Dog::Dog ( const Dog& dog ) {
 
+	std::cout << "Dog duplicated!" << std::endl;
+
 	this->type = dog.type;
 	this->_brain = new Brain();
 	*this->_brain = *dog._brain;
-
-	std::cout << "Dog duplidocated!" << std::endl;
 }
 
 Dog& Dog::operator= ( const Dog& dog ) {
 
+	std::cout << "Dog replicated!" << std::endl;
+
 	this->type = dog.type;
 	this->_brain = new Brain();
 	*this->_brain = *dog._brain;
 
-	std::cout << "Dog replidocated!" << std::endl;
 	return *this;
 }
 
