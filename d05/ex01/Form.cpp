@@ -3,18 +3,18 @@
 Form::Form ( void ) :
 _name( "Default Form" ),
 _grade_exec( 150 ),
-_grade_sign( 150 ) {
+_grade_sign( 150 ),
+_isSigned( false ) {
 
-	this->_isSigned = false;
 	std::cout << "Form " << this->_name << " issued!" << std::endl;
 }
 
 Form::Form ( const std::string& name ) :
 _name( name ),
 _grade_exec( 150 ),
-_grade_sign( 150 ) {
+_grade_sign( 150 ),
+_isSigned( false ) {
 
-	this->_isSigned = false;
 	std::cout << "Form " << this->_name << " issued!" << std::endl;
 }
 
@@ -24,9 +24,9 @@ Form::Form ( int exec, int sign ) : _grade_exec( exec ), _grade_sign( sign ) {
 Form::Form ( const Form& f ) :
 _name( f._name ),
 _grade_exec( f._grade_exec ),
-_grade_sign( f._grade_sign ) {
+_grade_sign( f._grade_sign ),
+_isSigned( f._isSigned ) {
 
-	this->_isSigned = f._isSigned;
 	std::cout << "Form " << this->_name << " duplicated!" << std::endl;
 }
 

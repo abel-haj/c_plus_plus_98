@@ -3,10 +3,13 @@
 Bureaucrat::Bureaucrat ( void ) : _name( "worker" ) {
 
 	this->_grade = 150;
-	std::cout << "Bureaucrat " << this->_name << " was hired with grade 150!" << std::endl;
+	std::cout << "Bureaucrat " << this->_name
+		<< " was hired with grade 150!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat ( const std::string& name, int grade ) : _name ( name ) {
+Bureaucrat::Bureaucrat ( const std::string& name, int grade ) :
+_name ( name ),
+_grade ( grade ) {
 
 	if ( grade > 150 )
 		throw GradeTooLowException();
@@ -14,16 +17,15 @@ Bureaucrat::Bureaucrat ( const std::string& name, int grade ) : _name ( name ) {
 	else if ( grade < 1 )
 		throw GradeTooHighException();
 
-	else
-		this->_grade = grade;
-
-	std::cout << "Bureaucrat " << this->_name << " was hired with grade " << this->_grade << "!" << std::endl;
-
+	std::cout << "Bureaucrat " << this->_name
+		<< " was hired with grade " << this->_grade
+		<< "!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat ( const Bureaucrat& b ) : _name (b._name){
+Bureaucrat::Bureaucrat ( const Bureaucrat& b ) :
+_name ( b._name ) {
 
-	this->_grade = b._grade;
+	*this = b;
 }
 
 Bureaucrat& Bureaucrat::operator= ( const Bureaucrat& b ) {
@@ -50,7 +52,7 @@ const int& Bureaucrat::getGrade ( void ) const {
 
 void Bureaucrat::incrementGrade ( void ) {
 
-	if (this->_grade == 1)
+	if ( this->_grade == 1 )
 		throw GradeTooHighException();
 	else
 		this->_grade--;
@@ -60,7 +62,7 @@ void Bureaucrat::incrementGrade ( void ) {
 
 void Bureaucrat::decrementGrade ( void ) {
 
-	if (this->_grade == 150)
+	if ( this->_grade == 150 )
 		throw GradeTooLowException();
 	else
 		this->_grade++;
