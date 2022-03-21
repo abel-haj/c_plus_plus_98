@@ -1,60 +1,75 @@
 #include "Bureaucrat.hpp"
-// #include "Form.hpp"
+
+#define NEWLINE std::cout << std::endl;
 
 int	main () {
 
-	// Bureaucrat a;
-	// Bureaucrat b ( 100 );
-	// try
-	// {
-	// 	Bureaucrat c ( " ", 0 );
-	// }
-	// catch ( std::exception& e )
-	// {
-	// 	std::cout << e.what() << "\n\n";
-	// }
+	{
+		Form a;
+		Form b ( "Document", 1, 150 );
+		Bureaucrat roger ( "Roger", 75 );
+		std::cout << b << std::endl;
+		std::cout << "-------------" << std::endl;
+		roger.signForm( b );
+		std::cout << "-------------" << std::endl;
+		std::cout << b << std::endl;
+	}
+	NEWLINE
 
-	// try
-	// {
-	// 	Bureaucrat c ( " ", 151 );
-	// }
-	// catch ( std::exception& e )
-	// {
-	// 	std::cout << e.what() << "\n\n";
-	// }
+	{
+		Form f ( "F", 5, 5 );
+		Bureaucrat b ( "random", 10 );
+		b.signForm( f );
+	}
+	NEWLINE
 
-	// try
-	// {
-	// 	Bureaucrat a ( "random", 1 );
-	// 	a.incrementGrade();
-	// }
-	// catch( std::exception& e )
-	// {
-	// 	std::cout << e.what() << "\n\n";
-	// }
+	std::cout << "-------------" << std::endl;
 
-	// try
-	// {
-	// 	Bureaucrat a ( "random", 150 );
-	// 	a.decrementGrade();
-	// }
-	// catch( std::exception& e )
-	// {
-	// 	std::cout << e.what() << "\n\n";
-	// }
+	try
+	{
+		Form c ( "B", 1, 0 );
+	}
+	catch ( std::exception& e )
+	{
+		std::cout << e.what();
+		NEWLINE
+	}
 
-	// Bureaucrat c ( "", -5 );
+	std::cout << "-------------" << std::endl;
 
-	Form a;
-	Form b ( "B" );
-	Form c;
+	try
+	{
+		Form c ( "B", 0, 1 );
+	}
+	catch ( std::exception& e )
+	{
+		std::cout << e.what();
+		NEWLINE
+	}
 
-	c = a;
+	std::cout << "-------------" << std::endl;
 
-	Bureaucrat ba;
-	Bureaucrat bb ( "Office worker", 125 );
+	try
+	{
+		Form c ( "", 151, 150 );
+	}
+	catch ( std::exception& e )
+	{
+		std::cout << e.what();
+		NEWLINE
+	}
 
-	ba.signForm( a );
+	std::cout << "-------------" << std::endl;
+
+	try
+	{
+		Form c ( "", 150, 151 );
+	}
+	catch ( std::exception& e )
+	{
+		std::cout << e.what();
+		NEWLINE
+	}
 
 	return 0;
 }
