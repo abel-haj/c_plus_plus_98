@@ -57,7 +57,7 @@ void Bureaucrat::incrementGrade ( void ) {
 	else
 		this->_grade--;
 
-	std::cout << this->_name << " got a promotion!";
+	std::cout << this->_name << " got a promotion!" << std::endl;
 }
 
 void Bureaucrat::decrementGrade ( void ) {
@@ -67,7 +67,7 @@ void Bureaucrat::decrementGrade ( void ) {
 	else
 		this->_grade++;
 
-	std::cout << this->_name << " got a demotion!";
+	std::cout << this->_name << " got a demotion!" << std::endl;
 }
 
 void Bureaucrat::signForm ( Form& f ) {
@@ -75,24 +75,27 @@ void Bureaucrat::signForm ( Form& f ) {
 	try {
 
 		f.beSigned( *this );
-		std::cout << this->getName() << " signed " << f.getName() << std::endl;
+		std::cout << this->getName()
+			<< " signed " << f.getName() << std::endl;
 	}
 	catch ( std::exception& e ) {
 
-		std::cout << this->getName() << " couldn’t sign" << f.getName() << " because " << e.what() << std::endl;
+		std::cout << this->getName()
+			<< " couldn’t sign form " << f.getName()
+			<< ", because " << e.what() << std::endl;
 	}
 }
 
 // Bureaucrat grade exceeding 150
 const char* Bureaucrat::GradeTooHighException::what ( void ) const throw () {
 
-	return "GRADE WAS ABOVE 150!";
+	return "GRADE WAS ABOVE 1!";
 }
 
 // Bureaucrat grade less than 0
 const char* Bureaucrat::GradeTooLowException::what ( void ) const throw () {
 
-	return "GRADE WAS ABOVE 150!";
+	return "GRADE WAS BELOW 150!";
 }
 
 std::ostream& operator<< ( std::ostream& os, const Bureaucrat& b) {
