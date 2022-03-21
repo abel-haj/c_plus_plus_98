@@ -101,7 +101,7 @@ int	main(void)
 
 			try
 			{
-				if (std::stoi(search) < d)
+				if (std::stoi(search) < d && std::stoi(search) > -1)
 				{
 					p.search(std::stoi(search));
 				}
