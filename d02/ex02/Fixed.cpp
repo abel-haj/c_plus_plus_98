@@ -80,9 +80,6 @@ Fixed::~Fixed ( void ) {
 }
 
 // COMPARAISON OPERATORS
-/*
- * 
- */
 bool Fixed::operator> (const Fixed& f) const {
 
 	if (this->_value > f._value)
@@ -90,9 +87,6 @@ bool Fixed::operator> (const Fixed& f) const {
 	return false;
 }
 
-/*
- * 
- */
 bool Fixed::operator< (const Fixed& f) const {
 
 	if (this->_value < f._value)
@@ -100,9 +94,6 @@ bool Fixed::operator< (const Fixed& f) const {
 	return false;
 }
 
-/*
- * 
- */
 bool Fixed::operator>= (const Fixed& f) const {
 
 	if (this->_value >= f._value)
@@ -110,9 +101,6 @@ bool Fixed::operator>= (const Fixed& f) const {
 	return false;
 }
 
-/*
- * 
- */
 bool Fixed::operator<= (const Fixed& f) const {
 
 	if (this->_value <= f._value)
@@ -120,9 +108,6 @@ bool Fixed::operator<= (const Fixed& f) const {
 	return false;
 }
 
-/*
- * 
- */
 bool Fixed::operator== (const Fixed& f) const {
 
 	if (this->_value == f._value)
@@ -130,9 +115,6 @@ bool Fixed::operator== (const Fixed& f) const {
 	return false;
 }
 
-/*
- * 
- */
 bool Fixed::operator!= (const Fixed& f) const {
 
 	if (this->_value != f._value)
@@ -159,14 +141,14 @@ Fixed Fixed::operator- (const Fixed& f) const {
 Fixed Fixed::operator* (const Fixed& f) const {
 
 	Fixed ret;
-	ret._value = (this->toFloat() * f.toFloat()) * 256;
+	ret._value = (this->toFloat() * f.toFloat()) * (1 << this->_bits);
 	return ret;
 }
 
 Fixed Fixed::operator/ (const Fixed& f) const {
 
 	Fixed ret;
-	ret._value = (this->toFloat() / f.toFloat()) * 256;
+	ret._value = (this->toFloat() / f.toFloat()) * (1 << this->_bits);
 	return ret;
 }
 // ARITHMETIC OPERATORS
@@ -174,7 +156,7 @@ Fixed Fixed::operator/ (const Fixed& f) const {
 // INCREMET/DECREMENT OPERATORS
 Fixed Fixed::operator++ () {
 
-	++this->_value;
+	this->_value = (this->toFloat() + 1) * (1 << this->_bits);
 
 	return *this;
 }
@@ -184,14 +166,14 @@ Fixed Fixed::operator++ ( int ) {
 	Fixed result;
 
 	result = *this;
-	++this->_value;
+	this->_value = (this->toFloat() + 1) * (1 << this->_bits);
 
 	return result;
 }
 
 Fixed Fixed::operator-- () {
 
-	--this->_value;
+	this->_value = (this->toFloat() - 1) * (1 << this->_bits);
 
 	return *this;
 }
@@ -201,7 +183,7 @@ Fixed Fixed::operator-- ( int ) {
 	Fixed result;
 
 	result = *this;
-	--this->_value;
+	this->_value = (this->toFloat() - 1) * (1 << this->_bits);
 
 	return result;
 }
