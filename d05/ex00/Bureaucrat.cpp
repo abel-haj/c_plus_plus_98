@@ -57,7 +57,7 @@ void Bureaucrat::incrementGrade ( void ) {
 	else
 		this->_grade--;
 
-	std::cout << this->_name << " got a promotion!";
+	std::cout << this->_name << " got a promotion!" << std::endl;
 }
 
 void Bureaucrat::decrementGrade ( void ) {
@@ -67,19 +67,19 @@ void Bureaucrat::decrementGrade ( void ) {
 	else
 		this->_grade++;
 
-	std::cout << this->_name << " got a demotion!";
+	std::cout << this->_name << " got a demotion!" << std::endl;
 }
 
 // Exception class member functions
 const char* Bureaucrat::GradeTooHighException::what ( void ) const throw () {
 
-	return "GRADE WAS ABOVE 150!";
+	return "GRADE WAS ABOVE 1!";
 }
 
 // Exception class member functions
 const char* Bureaucrat::GradeTooLowException::what ( void ) const throw () {
 
-	return "GRADE WAS ABOVE 150!";
+	return "GRADE WAS BELOW 150!";
 }
 
 std::ostream& operator<< ( std::ostream& os, const Bureaucrat& b) {
