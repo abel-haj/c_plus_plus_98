@@ -13,7 +13,7 @@ class Dog : public AAnimal {
 					Dog ( void );
 					Dog ( const Dog& dog );
 		Dog&		operator= ( const Dog& dog );
-					~Dog ( void );
+		virtual		~Dog ( void );
 
 		void		makeSound ( void ) const;
 };

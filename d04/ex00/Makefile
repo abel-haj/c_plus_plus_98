@@ -1,10 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: abel-haj <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/03/20 07:13:05 by abel-haj          #+#    #+#              #
+#    Updated: 2022/03/20 07:13:06 by abel-haj         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME			=	animal
 CC				=	c++
 CPPFLAGS		=	-Wall -Werror -Wextra -std=c++98
 SRCS			=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 HSRCS			= 	Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 
-all		:	$(NAME) $(HSRCS)
+all		:	$(NAME)
 
 $(NAME)	:	$(SRCS) $(HSRCS)
 	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME) && echo "\033[1;33mCompiled $(NAME)\033[0m"
@@ -13,6 +25,5 @@ clean	:
 	@@/bin/rm -f $(NAME) && echo "\033[1;31mRemoved executable\033[0m"
 
 re		:	clean all
-	./$(NAME)
 
 .PHONY	:	re clean all

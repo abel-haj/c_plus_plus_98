@@ -27,11 +27,6 @@ AAnimal::~AAnimal ( void ) {
 	std::cout << "The AAnimal disappeared!" << std::endl;
 }
 
-void AAnimal::makeSound ( void ) const {
-
-	std::cout << "*loud noise*" << std::endl;
-}
-
 const std::string& AAnimal::getType ( void ) const {
 
 	return this->type;
