@@ -22,6 +22,7 @@ Dog& Dog::operator= ( const Dog& dog ) {
 	std::cout << "Dog replicated!" << std::endl;
 
 	this->type = dog.type;
+	delete this->_brain;
 	this->_brain = new Brain();
 	*this->_brain = *dog._brain;
 

@@ -22,6 +22,7 @@ Cat& Cat::operator= ( const Cat& cat ) {
 	std::cout << "Cat replicated!" << std::endl;
 
 	this->type = cat.type;
+	delete this->_brain;
 	this->_brain = new Brain();
 	*this->_brain = *cat._brain;
 

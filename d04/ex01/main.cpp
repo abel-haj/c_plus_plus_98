@@ -19,6 +19,16 @@ int main ( void ) {
 
 		delete j;
 		DNEWLINE
+
+		{
+			Dog basic;
+			DNEWLINE
+			{
+				Dog tmp = basic;
+				DNEWLINE
+			}
+			DNEWLINE
+		}
 	}
 
 	{
