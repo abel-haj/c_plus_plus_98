@@ -1,7 +1,7 @@
 NAME			=	forms
 CC				=	c++
 CPPFLAGS		=	-Wall -Werror -Wextra -std=c++98
-SRCS			=	main.cpp Bureaucrat.cpp
+SRCS			=	main.cpp Bureaucrat.cpp Form.cpp
 HSRCS			= 	Bureaucrat.hpp
 
 all		:	$(NAME) $(HSRCS)
