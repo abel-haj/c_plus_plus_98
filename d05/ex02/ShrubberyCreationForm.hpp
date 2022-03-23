@@ -10,7 +10,7 @@ class ShrubberyCreationForm : public Form {
 										ShrubberyCreationForm ( void );
 
 	public:
-										ShrubberyCreationForm ( std::string & target );
+										ShrubberyCreationForm ( std::string const & target );
 										ShrubberyCreationForm ( ShrubberyCreationForm const & instance );
 		ShrubberyCreationForm&			operator= ( ShrubberyCreationForm const & instance );
 										~ShrubberyCreationForm ( void );
