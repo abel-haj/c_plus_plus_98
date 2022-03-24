@@ -12,7 +12,8 @@ _isSigned( false ) {
 Form::Form ( std::string name, int exec, int sign ) :
 _name( name ),
 _grade_exec( exec ),
-_grade_sign( sign ) {
+_grade_sign( sign ),
+_isSigned( false ) {
 
 	if ( exec > 150 || sign > 150 )
 		throw GradeTooLowException();
