@@ -1,4 +1,4 @@
-NAME			=	work
+NAME			=	internship
 CC				=	c++
 CPPFLAGS		=	-Wall -Werror -Wextra -std=c++98
 SRCS			=	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
