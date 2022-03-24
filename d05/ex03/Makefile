@@ -11,10 +11,8 @@ $(NAME)	:	$(SRCS) $(HSRCS)
 
 clean	:
 	@/bin/rm -f $(NAME) && echo "\033[1;31mRemoved executable\033[0m"
-
-fclean	:	clean
-	@/bin/rm -f *_shrubbery && echo "\033[1;31mRemoved executable\033[0m"
+	@/bin/rm -f *_shrubbery && echo "\033[1;31mRemoved unnecessary files\033[0m"
 
 re		:	clean all
 
-.PHONY	:	re fclean all
+.PHONY	:	re clean all
