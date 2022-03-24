@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 
 #define NEWLINE std::cout << std::endl;
+#define SEPERATE std::cout << "-------------" << std::endl;
 
 int	main () {
 
@@ -9,22 +10,19 @@ int	main () {
 		Form b ( "Document", 1, 150 );
 		Bureaucrat roger ( "Roger", 75 );
 		std::cout << b << std::endl;
-		std::cout << "-------------" << std::endl;
+		NEWLINE
 		roger.signForm( b );
-		std::cout << "-------------" << std::endl;
 		std::cout << b << std::endl;
+		NEWLINE
 	}
-	NEWLINE
-
+SEPERATE
 	{
 		Form f ( "F", 5, 5 );
 		Bureaucrat b ( "random", 10 );
 		b.signForm( f );
+		NEWLINE
 	}
-	NEWLINE
-
-	std::cout << "-------------" << std::endl;
-
+SEPERATE
 	try
 	{
 		Form c ( "B", 1, 0 );
@@ -34,9 +32,7 @@ int	main () {
 		std::cout << e.what();
 		NEWLINE
 	}
-
-	std::cout << "-------------" << std::endl;
-
+SEPERATE
 	try
 	{
 		Form c ( "B", 0, 1 );
@@ -46,9 +42,7 @@ int	main () {
 		std::cout << e.what();
 		NEWLINE
 	}
-
-	std::cout << "-------------" << std::endl;
-
+SEPERATE
 	try
 	{
 		Form c ( "", 151, 150 );
@@ -58,9 +52,7 @@ int	main () {
 		std::cout << e.what();
 		NEWLINE
 	}
-
-	std::cout << "-------------" << std::endl;
-
+SEPERATE
 	try
 	{
 		Form c ( "", 150, 151 );
