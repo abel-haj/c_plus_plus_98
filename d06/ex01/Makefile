@@ -2,7 +2,7 @@ NAME		=	serialization
 SRCS		=	serialization.cpp main.cpp
 HEADERS		=	serialization.hpp
 CC			=	c++
-FLAGS		=	-Wall -Wextra -Werror -std=c++11
+FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
 all:	$(NAME) $(HEADERS)
 
