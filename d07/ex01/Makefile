@@ -4,9 +4,9 @@ HEADERS		=	iter.hpp
 CC			=	c++
 FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-all:	$(NAME) $(HEADERS)
+all:	$(NAME)
 
-$(NAME): $(SRCS)
+$(NAME): $(SRCS) $(HEADERS)
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME) && echo "Compilation succeeded" || echo "Compilation failed"
 
 clean:
