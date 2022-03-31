@@ -12,7 +12,7 @@ int main( void ) {
 	int a[5] = { 1, 2, 3, 4, 5 };
 	::iter( a, 5, &print );
 
-	std::cout << std::endl;
+	std::cout << "-----" << std::endl;
 
 	std::string s[5] = { "one", "two", "three", "four", "five" };
 	::iter( s, 5, &print );
