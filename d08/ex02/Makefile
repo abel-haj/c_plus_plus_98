@@ -1,6 +1,6 @@
 NAME		=	mutant
 CC			=	c++
-FLAGS		=	-Wall -Wextra -Werror
+# FLAGS		=	-Wall -Wextra -Werror
 CSTD		=	-std=c++98
 SRCS		=	main.cpp
 HEADERS		=	MutantStack.hpp
