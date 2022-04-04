@@ -7,17 +7,6 @@ Span::Span( void )
 Span::Span( unsigned int n )
 : _size( 0 ), _max( n ) {}
 
-Span::Span( int *s, int *e )
-: _size( 0 ), _max( 0 ) {
-
-	for (unsigned int i = 0; i < e - s; i++)
-	{
-		this->_tab.insert(this->_tab.end(), s[i]);
-		this->_size++;
-		this->_max++;
-	}
-}
-
 Span::Span( Span const & src )
 {
 	*this = src;
@@ -33,6 +22,17 @@ Span & Span::operator =( Span const & src )
 
 Span::~Span()
 {}
+
+void Span::addNumber( int *s, int *e )
+{
+
+	for (unsigned int i = 0; i < e - s; i++)
+	{
+		this->_tab.insert(this->_tab.end(), s[i]);
+		this->_size++;
+		this->_max++;
+	}
+}
 
 void Span::addNumber( int n ) throw( char const * )
 {

@@ -22,13 +22,14 @@ int main( void ) {
 		}
 		catch( const char * s )
 		{
-			std::cerr << " Exception: " << s << '\n';
+			std::cerr << "Exception: " << s << '\n';
 		}
 	}
 
 	{
 		int a[] = {6, 3, 17, 9, 11};
-		Span sp(a, a + 5);
+		Span sp;
+		sp.addNumber(a, a + 5);
 
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
@@ -38,6 +39,22 @@ int main( void ) {
 		try
 		{
 			sp.addNumber(0);
+		}
+		catch( const char * s )
+		{
+			std::cerr << "Exception: " << s << '\n';
+		}
+
+		Span sp2;
+		sp2 = sp;
+		std::cout << sp2.shortestSpan() << std::endl;
+	}
+
+	{
+		Span sp;
+		try
+		{
+			std::cout << sp.shortestSpan() << std::endl;
 		}
 		catch( const char * s )
 		{
