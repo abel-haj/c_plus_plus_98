@@ -1,13 +1,14 @@
-NAME			=	recap
+NAME			=	interface
 CC				=	c++
-CPPFLAGS		=	-Wall -Werror -Wextra -std=c++98
-SRCS			=	main.cpp
-HSRCS			= 	
+CPPFLAGS		=	-Wall -Werror -Wextra
+STDFLAGS		=	-std=c++11
+SRCS			=	main.cpp MateriaSource.cpp AMateria.cpp Character.cpp Ice.cpp Cure.cpp
+HSRCS			= 	IMateriaSource.hpp MateriaSource.hpp AMateria.hpp ICharacter.hpp Character.hpp Ice.hpp Cure.hpp
 
 all		:	$(NAME) $(HSRCS)
 
 $(NAME)	:	$(SRCS) $(HSRCS)
-	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME) && echo "\033[1;33mCompiled $(NAME)\033[0m"
+	@$(CC) $(CPPFLAGS) $(STDFLAGS) $(DFLAGS) $(SRCS) -o $(NAME) && echo "\033[1;33mCompiled $(NAME)\033[0m"
 
 clean	:
 	@/bin/rm -f $(NAME) && echo "\033[1;31mRemoved executable\033[0m"

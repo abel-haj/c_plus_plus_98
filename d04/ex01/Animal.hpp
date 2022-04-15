@@ -11,7 +11,7 @@ class Animal {
 	public:
 								Animal ( void );
 								Animal ( const Animal& animal );
-		Animal&					operator= ( const Animal& animal );
+		virtual Animal&			operator= ( const Animal& animal );
 		virtual					~Animal ( void );
 
 		virtual void			makeSound ( void ) const;

@@ -11,7 +11,7 @@ class AAnimal {
 	public:
 								AAnimal ( void );
 								AAnimal ( const AAnimal& animal );
-		AAnimal&					operator= ( const AAnimal& animal );
+		virtual AAnimal&		operator= ( const AAnimal& animal );
 		virtual					~AAnimal ( void );
 
 		virtual void			makeSound ( void ) const = 0;
